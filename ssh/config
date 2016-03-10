@@ -1,0 +1,10 @@
+Host debian-ssh
+  HostName 0.0.0.0
+  User docker
+  Port 40022
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+  LogLevel FATAL

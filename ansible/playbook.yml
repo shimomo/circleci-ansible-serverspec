@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: docker
+  become: yes
+  become_user: root
+  tasks:
+    - name: Apacheをインストール
+      apt: name=apache2 state=present
+
+    - name: Apacheを起動
+      service: name=apache2 state=started enabled=yes

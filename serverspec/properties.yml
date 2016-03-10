@@ -1,0 +1,3 @@
+debian-ssh:
+  :roles:
+    - proxy

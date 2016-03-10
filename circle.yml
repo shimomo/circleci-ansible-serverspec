@@ -1,0 +1,26 @@
+machine:
+  timezone: Asia/Tokyo
+  python:
+    version: 2.7.10
+  ruby:
+    version: 2.1.4
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - pip install ansible
+  override:
+    - docker build -t docker .
+
+test:
+  pre:
+    - bundle -j4 --path=vendor/bundle
+    - cp $HOME/$CIRCLE_PROJECT_REPONAME/ssh/config ~/.ssh/config
+    - cp $HOME/$CIRCLE_PROJECT_REPONAME/ssh/id_rsa ~/.ssh/id_rsa
+    - cp $HOME/$CIRCLE_PROJECT_REPONAME/ssh/id_rsa.pub ~/.ssh/id_rsa.pub
+    - sudo chown 600 ~/.ssh/id_rsa
+  override:
+    - docker run -d -p 40022:22 -e SSH_KEY="$(cat ~/.ssh/id_rsa.pub)" docker
+    - cd ansible && ansible-playbook -i inventory playbook.yml
+    - cd serverspec && bundle exec rake spec
