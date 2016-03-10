@@ -3,7 +3,7 @@ machine:
   python:
     version: 2.7.10
   ruby:
-    version: 2.1.4
+    version: 2.2.3
   services:
     - docker
 
