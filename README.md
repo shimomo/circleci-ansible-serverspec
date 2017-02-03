@@ -1,10 +1,10 @@
-# CircleCI-Ansible-Serverspec
+# CircleCI Ansible Serverspec
 
-[![Build Status](https://circleci.com/gh/shimomo/circleci-ansible-serverspec.svg?style=shield&circle-token=7af5ce994750fe8b5b70cd9443d58ef534ec2e85)](https://circleci.com/gh/shimomo/circleci-ansible-serverspec)
-[![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
+[![Build Status](https://circleci.com/gh/shimomo/circleci-ansible-serverspec.svg?style=shield&circle-token=d0c9a80ebd65ee394f4b837fe8c3304c2157c525)](https://circleci.com/gh/shimomo/circleci-ansible-serverspec)
+[![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
-## 概要
-CircleCI, Ansible, Serverspecを用いたテスト環境.
-
-GitHubにソースコードをプッシュすると, CircleCIがソースコードを取り込みテスト用のDockerコンテナを構築する.
-構築したコンテナに対してAnsibleでプロビジョニングを行い, Serverspecを使ってAnsibleのプロビジョニングが正しく行われたかテストする.
+## テストの流れ
+1. GitHubにソースコードをプッシュ.
+1. CircleCIがソースコードを取り込みテスト用のDockerコンテナを構築.
+1. 構築したコンテナに対してAnsibleでプロビジョニングを実行.
+1. Serverspecを使ってAnsibleのプロビジョニングが正しく行われたかを確認.
